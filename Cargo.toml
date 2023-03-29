@@ -23,7 +23,7 @@ repository = "https://github.com/stm32-rs/stm32f4xx-hal"
 version = "0.15.0"
 
 [package.metadata.docs.rs]
-features = ["stm32f429", "usb_fs", "can", "i2s", "fsmc_lcd", "rtic", "defmt"]
+features = ["stm32f429", "usb_fs", "can", "i2s", "fmc", "fsmc_lcd", "rtic", "defmt"]
 targets = ["thumbv7em-none-eabihf"]
 
 [dependencies]
@@ -47,6 +47,7 @@ rtic-monotonic = { version = "1.0", optional = true }
 systick-monotonic = { version = "1.0", optional = true }
 bitflags = "1.3.2"
 embedded-storage = "0.2"
+stm32-fmc = { version = "0.3.0", optional = true }
 
 [dependencies.time]
 version = "0.3.14"
@@ -333,6 +334,8 @@ i2s = ["stm32_i2s_v12x"]
 
 fsmc_lcd = ["display-interface"]
 
+fsmc = ["stm32-fmc"]
+
 defmt = ["dep:defmt", "fugit/defmt", "nb/defmt-0-3"]
 
 adc2 = []
@@ -342,7 +345,6 @@ can2 = []
 can3 = []
 dac = []
 fmc = []
-fsmc = []
 fmpi2c1 = []
 gpiod = []
 gpioe = []

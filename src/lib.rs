@@ -149,6 +149,8 @@ pub mod flash;
     any(feature = "fmc", feature = "fsmc")
 ))]
 pub mod fsmc_lcd;
+#[cfg(all(feature = "device-selected", any(feature = "fmc", feature = "fsmc")))]
+pub mod fmc;
 #[cfg(feature = "device-selected")]
 pub mod prelude;
 #[cfg(feature = "device-selected")]
